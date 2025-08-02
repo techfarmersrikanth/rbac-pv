@@ -1,0 +1,188 @@
+cat .\pv.yml
+ 190 kubectl apply -f .\pv.yml
+ 191 kubectl get pv
+ 192 clear
+ 193 kubectl get pvc
+ 194 kubectl apply -f .\pvc.yml
+ 195 kubectl get pvc
+ 196 kubectl get pv
+ 197 kubectl get pods
+ 198 kubectl get pv
+ 199 kubectl get pvc
+ 200 ls
+ 201 kubectl apply -f .\pod.yml
+ 202 kubectl get pods
+ 203 clear
+ 204 kubectl get pods
+ 205 kubectl describe pv my-pv
+ 206 kubectl describe pvc my-pvc
+ 207 kubectl describe pod pod-with-pvc
+ 208 kubectl get pods
+
+
+
+------------------------------
+rbac
+roles ->set of operations
+rolebindings -> assign to a user/group/sa
+clusterrole  -> its cluster  level
+clusterrolebindings >to assign to user/group/sa
+
+
+subjects, verbs,resource
+
+
+ kubectl delete pod pod-with-ppvc
+ 105 kubectl delete pod pod-with-pvc
+ 106 kubectl delete -f .\pvc.yml
+ 107 kubectl delete -f .\pv.yml
+ 108 kubectl delete -f .\pv.yml
+ 109 kubectl apply -f .\pv.yml
+ 110 kubectl apply -f .\pv.yml
+ 111 kubectl apply -f .\pv.yml
+ 112 kubectl get pv
+ 113 kubectl apply -f .\pvc.yml
+ 114 kubectl delete -f .\pod.yml
+ 115 kubectl apply -f .\pod.yml
+ 116 kubectl get pod
+ 117 kubectl exec -it pod-with-pvc -- /bin/bash
+ 118 kubectl delete -f .\pod.yml
+ 119 kubectl delete -f .\pod.yml .\pvc.yml .\pv.yml
+ 120 kubectl apply -f .\pvc.yml
+ 121 kubectl apply -f .\pv.yml
+ 122 kubectl delete -f .\pod.yml
+ 123 kubectl get pv
+ 124 kubectl get pvc
+ 125 kubectl delete pvc my-pvc
+ 126 kubectl delete pv my-pv
+ 127 kubectl get pods
+ 128 helm list
+ 129 helm unistall my-nginx
+ 130 helm uninstall my-nginx
+ 131 kubectl get pods
+ 132 clear
+ 133 kubectl apply -f .\pv.yml
+ 134 kubectl apply -f .\pvc.yml
+ 135 kubectl get pvc
+ 136 kubectl describe pvc my-pvc
+ 137 kubectl appply -f .\pod.yml
+ 138 kubectl apply -f .\pod.yml
+ 139 kubectl get pods
+ 140 kubectl get pods
+ 141 kubectl exec -it pod-with-pvc -- /bin/sh
+ 142 kubectl exec -it pod-with-pvc -- /bin/sh
+ 143 kubectl get pods
+ 144 kubectl delete -f .\pod.yml
+ 145 kubectl delete -f .\pvc.yml
+ 146 kubectl delete -f .\pv.yml
+ 147 kubectl apply -f .\pv.yml
+ 148 kubectl apply -f .\pvc.yml
+ 149 kubectl delete -f .\pod.yml
+ 150 kubectl apply -f .\pod.yml
+ 151 kubectl exec -it pod-with-pvc -- /bin/sh
+ 152 kubectl exec -it pod-with-pvc -- /bin/sh
+ 153 minikube mount "C:\Users\sandi\Downloads\sample-test:/usr/share/nginx/html" &
+ 154 minikube mount "C:\Users\sandi\Downloads\sample-test:/usr/share/nginx/html"
+ 155 kubectl delete -f .\pod.yml
+ 156 kubectl  delete -f .\pv.yml
+ 157 kubectl  delete -f .\pvc.yml
+ 158 clear
+ 159 clear
+ 160 kubectl get all
+ 161 clear
+ 162 cd C:\Users\sandi\Downloads\sample-test
+ 163 ls
+ 164 cd  .\rbac\
+ 165 ls
+ 166 kubectl apply -f .\namespace.yml
+ 167 kubectl apply -f .\role.yml
+ 168 kubectl apply -f .\sa.yml
+ 169 kubectl apply -f .\rolebinding.yaml
+ 170 kubectl -n dev create token dev-user
+ 171 kubectl config set-credentials dev-user --token=eyJhbGciOiJSUzI1NiIsImtpZCI6Ik45bkNvVlAzV2taODF4R0pMenBBdXA4WEJIOU8yY...
+ 172 kubectl config set-context dev-context --cluster=minikube --user=dev-user --namespace=dev
+ 173 kubectl config use-context dev-context
+ 174 kubectl get pods
+ 175 kubectl  delete -f .\pvc.yml
+ 176 cd ..
+ 177 kubectl apply -f .\pod.yml
+ 178 kubectl config get-contexts
+ 179 kubectl config use-context minikube
+ 180 kubectl apply -f .\pod.yml
+ 181 kubectl delete -f .\pod.yml
+ 182 clear
+ 183 minikube status
+ 184 kubectl get pv
+ 185 ls
+ 186 cd C:\Users\sandi\Downloads\sample-test
+ 187 clear
+ 188 ls
+ 189 cat .\pv.yml
+ 190 kubectl apply -f .\pv.yml
+ 191 kubectl get pv
+ 192 clear
+ 193 kubectl get pvc
+ 194 kubectl apply -f .\pvc.yml
+ 195 kubectl get pvc
+ 196 kubectl get pv
+ 197 kubectl get pods
+ 198 kubectl get pv
+ 199 kubectl get pvc
+ 200 ls
+ 201 kubectl apply -f .\pod.yml
+ 202 kubectl get pods
+ 203 clear
+ 204 kubectl get pods
+ 205 kubectl describe pv my-pv
+ 206 kubectl describe pvc my-pvc
+ 207 kubectl describe pod pod-with-pvc
+ 208 kubectl get pods
+ 209 history
+ 210 ls
+ 211 cd .\rbac\
+ 212 clear
+ 213 ls
+ 214 cat .\namespace.yml
+ 215 kubectl get ns
+ 216 kubectl apply -f .\namespace.yml
+ 217 kubectl get ns
+ 218 kubectl get roles
+ 219 kubectl get role
+ 220 kubectl apply -f .\role.yml
+ 221 kubectl get role
+ 222 kubectl get role -n production
+ 223 kubectl get rolebindings -n production
+ 224 kubectl apply -f .\rolebinding.yaml
+ 225 kubectl get rolebindings -n production
+ 226 clear
+ 227 kubectl -n production create token john-dev
+ 228 kubectl get sa -n production
+ 229 kubectl apply -f .\sa.yml
+ 230 kubectl get sa -n production
+ 231 kubectl -n production create token john-dev
+ 232 kubectl config set-credentials john-dev --token=eyJhbGciOiJSUzI1NiIsImtpZCI6Ik45bkNvVlAzV2taODF4R0pMenBBdXA4WEJIOU8yY...
+ 233 kubectl config set-context dev-context --cluster=minikube --user=john-dev --namespace=production
+ 234 kubectl config use-context dev-context
+ 235 kubectl config get-contexts
+ 236 kubectl get pods
+ 237 kubectl get pods -n production
+ 238 kubectl get pods -n default
+ 239 ls
+ 240 kubectl apply -f .\sa.yml
+ 241 cd ..
+ 242 ls
+ 243 kubectl apply -f .\pod.yml
+ 244 kubectl get pods
+ 245 kubectl config use-context minikube
+ 246 ls
+ 247 kubectl apply -f .\pod.yml
+ 248 kubectl apply -f .\pod.yml -n production
+ 249 kubectl get pods -n production
+ 250 kubectl config use-context dev-context
+ 251 kubectl get pods
+ 252 kubectl config get-contexts
+ 253 kubectl get pods
+ 254 kubectl get pods
+ 255 kubectl delete pod pod-with-pvc
+ 256 kubectl get pods -w
+

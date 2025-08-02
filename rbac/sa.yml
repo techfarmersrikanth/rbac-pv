@@ -1,0 +1,6 @@
+# sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: john-dev
+  namespace: production

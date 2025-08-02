@@ -1,0 +1,77 @@
+ What You’ll Do
+Deploy NGINX via Helm
+
+Access the NGINX welcome page in your browser using minikube service
+
+Customize the NGINX config using Helm values (optional)
+
+✅ Step-by-Step: Deploy NGINX using Helm on Minikube
+🔹 Step 1: Start Minikube
+
+minikube start --driver=docker
+
+🔹 Step 2: Add Bitnami Helm Repo (if not already)
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+🔹 Step 3: Install NGINX via Helm
+
+helm install my-nginx bitnami/nginx
+
+This will:
+
+Create a deployment for NGINX
+
+Expose it via a ClusterIP service
+
+🔹 Step 4: Expose NGINX using Minikube
+minikube service my-nginx
+
+This opens your browser to the running NGINX welcome page.
+
+🔹 Step 5: View Resources
+
+kubectl get all
+You’ll see:
+
+Deployment
+
+Pod
+
+Service
+
+ReplicaSet
+
+🛠 Optional: Customize with values.yaml
+To change service type, replica count, etc., first fetch default values:
+
+helm show values bitnami/nginx > nginx-values.yaml
+Edit it like this:
+replicaCount: 2
+
+service:
+  type: NodePort
+  nodePorts:
+    http: 30080
+
+ingress:
+  enabled: false
+Then install using:
+
+helm install my-nginx -f nginx-values.yaml bitnami/nginx
+Now access:
+
+http://<minikube-ip>:30080
+To get the Minikube IP:
+
+minikube ip
+🧽 To Uninstall
+
+helm uninstall my-nginx
+✅ Summary of Commands
+
+minikube start --driver=docker
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-nginx bitnami/nginx
+minikube service my-nginx
+helm uninstall my-nginx
