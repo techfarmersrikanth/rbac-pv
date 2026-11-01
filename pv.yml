@@ -8,5 +8,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /c/Users/sandi/Downloads/sample-test  # Only for dev/testing
+    path: /mnt/data-app  # Only for dev/testing
 
